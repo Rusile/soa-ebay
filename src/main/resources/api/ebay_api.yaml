@@ -1,0 +1,45 @@
+  openapi: 3.0.0
+  info:
+    title: Ebay Service API
+    description: API for additional product operations related to price changes
+    version: 1.0.0
+  servers:
+    - url: http://localhost:8080/ebay
+
+  paths:
+    /price/increase/{increase-percent}:
+      post:
+        summary: Increase all products cost on given percent
+        parameters:
+          - name: increase-percent
+            in: path
+            required: true
+            description: Percent of price increase
+            schema:
+              type: number
+              format: float
+              minimum: 0
+        responses:
+          200:
+            description: Price increased
+          400:
+            description: Incorrect percent
+
+    /price/decrease/{decrease-percent}:
+      post:
+        summary: Decrease all products cost on given percent
+        parameters:
+          - name: decrease-percent
+            in: path
+            required: true
+            description: Percent of price decrease
+            schema:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+        responses:
+          200:
+            description: Price decreased
+          400:
+            description: Incorrect percent
