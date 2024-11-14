@@ -23,11 +23,11 @@ open class ProductsApiClient {
     open fun getAllProducts(): List<Product> {
         val client = ClientBuilder.newClient()
         val response = client.target(URL)
-            .path("/products")
+            .path("/products/bulk")
             .queryParam("size", Int.MAX_VALUE)
             .request(APPLICATION_JSON)
             .header("Content-Type", "application/json")
-            .get(PageProduct::class.java)
+            .post(Entity.json("[]"), PageProduct::class.java)
 
         client.close()
 
