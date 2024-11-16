@@ -48,6 +48,6 @@ open class ProductsApiClient {
     }
 
     companion object {
-        private val URL = "http://localhost:8023/products-1.0-SNAPSHOT/api"
+        private val URL = "https://localhost:8023/products-1.0-SNAPSHOT/api"
     }
 }
